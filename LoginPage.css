@@ -1,0 +1,138 @@
+.wrapper {
+    width: 500px;
+    /* background: black    ; */
+    color: #fff;
+    align-items: center;
+    
+}
+.img-banner {
+    margin-top: 1rem;
+    display: flex;
+}
+.image {
+    width: 600px;
+    height: 120px;
+}
+.text {
+    position: absolute;
+    text-align: center;
+    margin-top: 30px;
+    text-justify: 25px;
+    margin-left: 130px;
+}
+.word {
+    position: absolute;
+    text-align: center;
+    margin-top: 70px;
+    text-justify: 25px;
+    margin-left: 160px;
+}
+
+.wrapper h1 {
+    font-size: 20px;
+    text-align: center;
+}
+.wrapper h4{
+    font-size: 10px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 450px;
+    height: 50px;
+    /* background: salmon; */
+    margin: 30px 0;
+    margin-left:25px;
+}
+
+.input-box input {
+    margin-top: 6px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255, .2);
+    /* border-radius: 40px; */
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+    background: #0B0722;
+    margin-top: 7px;
+
+    
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+.side-link {
+    text-align: center;
+    display: flex;
+    padding-top: 20px;
+    justify-content: space-between;
+    margin: 0 40px 0; 
+     
+}
+.side-link .icon {
+    color: white;   
+    /* position: relative; */
+    margin-top: 4.5px;
+}
+
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+    margin-left: 25px;
+}
+
+.remember-forgot label input {
+    accent-color: #0B0722;
+    margin-right: 4px;
+    margin-top: 25px;
+    
+}
+
+.side-link a {
+    color: #fff;    
+    text-decoration: none;
+}
+
+.side-link a:hover {
+    text-decoration: underline;
+}
+
+.wrapper button {
+    width: 450px;
+    height: 45px;
+    background: greenyellow;
+    border: none;
+    outline: none;
+    /* border-radius: 40px; */
+    box-shadow: 0 0 10px rgb(0, 0, 0, -1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #110218;
+    font-weight: 700;
+    margin-left: 25px;
+}
+
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.register-link p a {
+    color: greenyellow;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
