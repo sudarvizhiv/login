@@ -1,101 +1,89 @@
 import React from 'react';
-import { BiKey } from "react-icons/bi";
-import { IoMdLock } from "react-icons/io";
-import page from "./page.jpeg";
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup'; // Import Yup for validation
+import { TextField, Checkbox, Button,Link,Typography, FormControlLabel, Paper } from '@mui/material';
+import '@fontsource/inter/400.css';
+import Bannerimage from './Image/img.jpeg';
+import IconButton from '@mui/material/IconButton';
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import LockIcon from '@mui/icons-material/Lock';
 import './LoginPage.css';
 
 const LoginPage = () => {
+  const initialValues = {
+    email: '',
+    password: '',
+    rememberMe: false,
+  };
+
+  const validationSchema = Yup.object({
+    email: Yup.string().email('Invalid email address').required('Required'),
+    password: Yup.string().required('Required'),
+  });
+
+  const onSubmit = (values) => {
+    // Handle form submission logic here
+    console.log(values);
+  };
+
   return (
-    <div className="wrapper">
-        <form action="">
-            <div className='img-banner'>
-                <img className='image' src={page}/>
-                <h1 className='text'>Welcome Back!</h1>
-            <h4 className='word'>Sign in to continue</h4>
-            </div>
-            <div className="input-box">
-                <label>E-mail</label>
-                <input type="text"  required/>
-            </div>
-            <div className="input-box">
-                <label>Password</label>     
-                <input type="password" required/>
-            </div>
+    <Paper elevation={3} className="wrapper">
+      {/* Wrap your form with Formik */}
+      <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+        <Form>
+          <div className='img-banner'>
+            <img className='image' src={Bannerimage} />
+            <Typography variant="h3" className='text'>Welcome Back!</Typography>
+            <Typography variant="h4" className='word'>Sign in to continue</Typography>
+          </div>
 
-            <div className="remember-forgot">
-                <label><input type="checkbox"/>Remember me? </label>
-                
-            </div>
+          <div className="input-box">
+            <label>Email</label>
+            {/* Use Field component from Formik with TextField */}
+            <Field type="text" name="email" as={TextField} required />
+          </div>
 
-            <button type="submit">Log In</button>
+          <div className="input-box">
+            <label>Password</label>
+            {/* Use Field component from Formik with TextField */}
+            <Field type="password" name="password" as={TextField} required />
+          </div>
 
-            <div className="side-link">
-                <BiKey className='icon'/><a href="#">Login with email</a>
-                <IoMdLock  className='icon'/><a href="#">Forgot password?</a>
-            </div>
+          <div className="remember-forgot">
+            <FormControlLabel
+              control={<Field type="checkbox" name="rememberMe" as={Checkbox} />}
+              label="Remember me?"
+            />
+          </div>
 
-            
+          <Button type="submit" variant="contained" color="primary">
+            Log In
+          </Button>
 
-            <div className="register-link">
-                <p>Don't have an account?<a href='#'>Register Now</a></p>
-            </div>
-        </form>
-    </div>
+          <div className="side-link">
+            <Link href="#">
+                <IconButton>
+                    <VpnKeyIcon />
+                     Login with email
+                    </IconButton>
+                </Link>
+            <Link href="#">
+                < IconButton>
+                    <LockIcon/>
+                    Forgot password?
+                </IconButton>
+            </Link>
+          </div>
+
+          <div className="register-link">
+            <Typography variant="body1">
+              Don't have an account?<Link href='#'>Register Now</Link>
+            </Typography>
+          </div>
+        </Form>
+      </Formik>
+    </Paper>
   );
 };
 
-export default LoginPage
-
-
-
-
-
-// import React from 'react';
-import { TextField, Checkbox, Button, FormControlLabel } from '@mui/material';
-import { BiKey } from 'react-icons/bi';
-import { IoMdLock } from 'react-icons/io';
-import page from 'path-to-your-image'; // replace 'path-to-your-image' with the actual path to your image
-
-// const LoginPage = () => {
-//   return (
-    // <div className="wrapper">
-    //   <form action="">
-        // <div className='img-banner'>
-        //   <img className='image' src={page} alt="Banner"/>
-        //   <h1 className='text'>Welcome Back!</h1>
-        //   <h4 className='word'>Sign in to continue</h4>
-        // </div>
-        // <div className="input-box">
-        //   <label>E-mail</label>
-        //   <TextField type="text" required fullWidth />
-        // </div>
-        // <div className="input-box">
-        //   <label>Password</label>
-        //   <TextField type="password" required fullWidth />
-        // </div>
-
-        // <div className="remember-forgot">
-          {/* <FormControlLabel */}
-            // control={<Checkbox />}
-            // label="Remember me"
-        //   />
-        {/* </div> */}
-
-        // <Button type="submit" variant="contained" color="primary">
-        //   Log In
-        // </Button>
-
-        // <div className="side-link">
-        //   <BiKey className='icon'/><a href="#">Login with email</a>
-        //   <IoMdLock className='icon'/><a href="#">Forgot password?</a>
-        // </div>
-
-        // <div className="register-link">
-        //   <p>Don't have an account?<a href='#'>Register Now</a></p>
-        // </div>
-    //   </form>
-    // </div>
-//   );
-// };
-
-// export default LoginPage;
+export default LoginPage;
